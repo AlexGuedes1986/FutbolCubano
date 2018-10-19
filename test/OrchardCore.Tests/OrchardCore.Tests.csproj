@@ -1,0 +1,88 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\src\OrchardCore.Build\Dependencies.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>OrchardCore.Tests</AssemblyName>
+    <PackageId>OrchardCore.Tests</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Localization\PoFiles\EntryWithComments.po" />
+    <None Remove="Localization\PoFiles\EntryWithContext.po" />
+    <None Remove="Localization\PoFiles\EntryWithEscapedCharacters.po" />
+    <None Remove="Localization\PoFiles\EntryWithMultilineText.po" />
+    <None Remove="Localization\PoFiles\EntryWithoutTranslation.po" />
+    <None Remove="Localization\PoFiles\EntryWithPlural.po" />
+    <None Remove="Localization\PoFiles\EntryWithQuotes.po" />
+    <None Remove="Localization\PoFiles\EntryWithUnclosedQuote.po" />
+    <None Remove="Localization\PoFiles\MultipleEntries.po" />
+    <None Remove="Localization\PoFiles\PoeditHeader.po" />
+    <None Remove="Localization\PoFiles\SimpleEntry.po" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithComments.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithContext.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithEscapedCharacters.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithMultilineText.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithoutTranslation.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithPlural.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithQuotes.po" />
+    <EmbeddedResource Include="Localization\PoFiles\EntryWithUnclosedQuote.po" />
+    <EmbeddedResource Include="Localization\PoFiles\MultipleEntries.po" />
+    <EmbeddedResource Include="Localization\PoFiles\PoeditHeader.po" />
+    <EmbeddedResource Include="Localization\PoFiles\SimpleEntry.po" />
+  </ItemGroup>
+
+  <!-- Necessary as we reference the Project and not the Package -->
+  <Import Project="..\..\src\OrchardCore\OrchardCore.Application.Targets\OrchardCore.Application.Targets.targets" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OrchardCore.Modules\OrchardCore.OpenId\OrchardCore.OpenId.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Application.Targets\OrchardCore.Application.Targets.csproj" />
+    <ProjectReference Include="..\OrchardCore.Tests.Modules\BaseThemeSample\BaseThemeSample.csproj" />
+    <ProjectReference Include="..\OrchardCore.Tests.Modules\BaseThemeSample2\BaseThemeSample2.csproj" />
+    <ProjectReference Include="..\OrchardCore.Tests.Modules\DerivedThemeSample\DerivedThemeSample.csproj" />
+    <ProjectReference Include="..\OrchardCore.Tests.Modules\DerivedThemeSample2\DerivedThemeSample2.csproj" />
+    <ProjectReference Include="..\OrchardCore.Tests.Modules\ModuleSample\ModuleSample.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore\OrchardCore.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore.Modules\OrchardCore.Liquid\OrchardCore.Liquid.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore.Modules\OrchardCore.Queries\OrchardCore.Queries.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore.Modules\OrchardCore.Users\OrchardCore.Users.csproj">
+      <Aliases></Aliases>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\OrchardCore.Modules\OrchardCore.Workflows\OrchardCore.Workflows.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Data\OrchardCore.Data.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.DisplayManagement\OrchardCore.DisplayManagement.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Hosting.Console\OrchardCore.Hosting.Console.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Localization.Abstractions\OrchardCore.Localization.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Localization.Core\OrchardCore.Localization.Core.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Recipes.Implementations\OrchardCore.Recipes.Implementations.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Scripting.JavaScript\OrchardCore.Scripting.JavaScript.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCore\OrchardCore.Workflows.Abstractions\OrchardCore.Workflows.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="xunit.analyzers" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="$(DotNetXunitVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+  <Import Project="..\..\src\OrchardCore.Build\OrchardCore.Commons.targets" />
+
+</Project>
